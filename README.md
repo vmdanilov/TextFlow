@@ -2,7 +2,7 @@
 
 TextFlow is a set of Automator workflows for text manipulation in any OS X text control where built-in OS X text tools might be unavailable or insufficient.
 
-<img src="screenshots/screenshot-textflow-menu.png" alt="Screenshot of TextFlow menu" width="621" height="368">
+<img src="screenshots/screenshot-textflow-menu.png" alt="Screenshot of TextFlow menu" width="600" height="321">
 
 <img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="664">
 
