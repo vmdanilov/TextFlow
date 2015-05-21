@@ -42,7 +42,7 @@ Note: by default, TextFlow removes any formatting from the text.
 
 ## Install
 
-1. Download [the latest release](archive/master.zip).
+1. Download [the latest release](https://github.com/vmdanilov/TextFlow/archive/master.zip).
 2. Unpack the archive.
 3. Double click workflows to install for a current user. If Gatekeeper does not allow the installation, right-click (or `⌘ Command` + Click) on a workflow and choose Open.
 
