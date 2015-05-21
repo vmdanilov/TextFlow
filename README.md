@@ -2,9 +2,9 @@
 
 TextFlow is a set of Automator workflows for text manipulation in any OS X text control where built-in OS X text tools might be unavailable or insufficient.
 
-![Screenshot of TextFlow menu](screenshots/screenshot-textflow-menu.png)
+<img src="screenshots/screenshot-textflow-menu.png" alt="Screenshot of TextFlow menu" width="621" height="368">
 
-![Screenshot of TextFlow transforms](screenshots/screenshot-textflow-transforms.png)
+<img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="664">
 
 ## Workflows
 
@@ -62,7 +62,7 @@ Recommended shortcuts:
 
 \* – For the sake of consistency, it is also recommended to assign the same global shortcut to *Paste and Match Style Command* via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*.
 
-![Screenshot of assigning Paste and Match Style shortcut for all Apps](screenshots/screenshot-paste-and-match-style-shortcut.png)
+<img src="screenshots/screenshot-paste-and-match-style-shortcut.png" alt="Screenshot of assigning Paste and Match Style shortcut for all Apps" width="780" height="693">
 
 ## Contributing
 
