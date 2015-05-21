@@ -60,7 +60,7 @@ Recommended shortcuts:
 - *Transform Selected Text*: <kbd>⌃ Control</kbd> <kbd>⌥ Option</kbd> <kbd>⌘ Command</kbd> <kbd>T</kbd>
 - *Paste as Plain Text*\*: <kbd>⇧ Shift</kbd> <kbd>⌘ Command</kbd> <kbd>V</kbd>
 
-\* – For the sake of consistency, it is also recommended to assign the same global shortcut to *Paste and Match Style Command* via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*.
+\* – For the sake of consistency, it is also recommended to assign the same global shortcut to *Paste and Match Style* command via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*.
 
 <img src="screenshots/screenshot-paste-and-match-style-shortcut.png" alt="Screenshot of assigning Paste and Match Style shortcut for all Apps" width="780" height="693">
 
