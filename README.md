@@ -56,9 +56,9 @@ You can assign global shortcuts via * > System Preferences > Keyboard > Short
 
 Recommended shortcuts:
 
-- *Paste Transformed Text*: <kbd>⌃ Control</kbd><kbd>⌥ Option</kbd><kbd>⌘ Command</kbd><kbd>V</kbd>
-- *Transform Selected Text*: <kbd>⌃ Control</kbd><kbd>⌥ Option</kbd><kbd>⌘ Command</kbd><kbd>T</kbd>
-- *Paste Unformatted Text*\*: <kbd>⇧ Shift</kbd><kbd>⌘ Command</kbd><kbd>V</kbd>
+- *Paste Transformed Text*: <kbd>⌃ Control</kbd> <kbd>⌥ Option</kbd> <kbd>⌘ Command</kbd> <kbd>V</kbd>
+- *Transform Selected Text*: <kbd>⌃ Control</kbd> <kbd>⌥ Option</kbd> <kbd>⌘ Command</kbd> <kbd>T</kbd>
+- *Paste Unformatted Text*\*: <kbd>⇧ Shift</kbd> <kbd>⌘ Command</kbd> <kbd>V</kbd>
 
 \* – For the sake of consistency, it is also recommended to assign the same global shortcut to *Paste and Match Style Command* via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*.
 
