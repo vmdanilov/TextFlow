@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>409.2</string>
+	<key>AMApplicationVersion</key>
+	<string>2.5</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}		tell application "System Events"		set activeProcessId to unix id of first process whose frontmost is true	end tell		tell me to activate		set theFormatList to {"Fix Paragraphs", "Extract URL", "Extract Email Address", "Unescape URL", "Plain List", "Remove Duplicate Lines", "Merge All Lines", "Remove Empty Lines", "Remove Extra Spaces", "Dumb Punctuation", "Remove Quotes", "Text Substitution", "Transliterate", "Smart Units", "Smart Punctuation", "Sentence Case", "Upper Case", "Lower Case", "Title Case", "Sort Lines in Ascending Order", "Sort Lines in Descending Order", "Unordered List", "Ordered List"}		set defaultFormat to ""	try		set defaultFormat to do shell script "defaults read com.services.textworkflows 'Format' 2&gt;/dev/null" as text	end try	set defaultFormat to words of defaultFormat		set defaultFormatItems to {}	repeat with i from 1 to count defaultFormat		try			set end of defaultFormatItems to item (item i of defaultFormat) of theFormatList		end try	end repeat		set choices to choose from list theFormatList with title "TextFlow – Paste Transformed Text" with prompt "Please select text transforms:" default items defaultFormatItems with multiple selections allowed and empty selection allowed		set input to {}		if choices = false then				set input to {"0"}			else				repeat with i from 1 to count theFormatList			if choices contains item i of theFormatList then				set end of input to i as string			end if		end repeat				set AppleScript's text item delimiters to {", "}		if (input as string) ≠ (defaultFormat as string) then			try				do shell script "defaults write com.services.textworkflows 'Format' " &amp; quoted form of (input as string) &amp; " 2&gt;/dev/null"			end try		end if			end if		try		tell application "System Events"			set the frontmost of first process whose unix id is activeProcessId to true		end tell	end try		return inputend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>89FB7983-B9A6-4FDA-85F7-E7AC50A6FE16</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>B4183D2E-B757-40ED-9E54-5BE83E9CC2DA</string>
+				<key>UUID</key>
+				<string>1D1DA370-B1A8-417B-BD18-BFB79389A39B</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>318.500000:316.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>export LC_CTYPE=UTF-8
+text=$(pbpaste)
+
+main() {
+
+for x in "$@"; do
+case $x in
+1) # Fix Paragraphs
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC\pP\pS]+//g;' -e 's/[\pZ\pC]+$//g;' | perl -Mutf8 -CSAD -0777pe 's/[\pZ\pC]*[\r\n][\pZ\pC]*[\r\n][\pZ\pC]*/'$'\n'$'\n''/g;' -e 's/(?&lt;!\n)\n(?!\n)/ /g;' | perl -Mutf8 -CSAD -lpe 's/[\pZ\pC]+/ /g;' -e 's/^[\pZ\pC]+//g;' -e 's/[\pZ\pC]+$//g;');;
+2) # Extract URL
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/((?:[A-Za-z][A-Za-z+.-]*:)?(?:\/\/)?[{\pL\pN@!$&amp;*=^`|~#%+\/?_}-][^\s]*\.[^\s]*[{\pL\pN@!$&amp;*=^`|~#%+\/_}-])/g){push @l, $1};END{printf "%s", join "\n", @l;}');;
+3) # Extract Email Address
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/([{\pL\pN!$&amp;*=^`|~#%+\/?_}-][^\s@]*@[^\s]+\.[{\pL\pN$&amp;*=^`|~#%+\/_}-]+)/g){push @l, $1};END{printf "%s", join ", ", @l;}');;
+4) # Unescape URL
+	text=$(printf '%s' "$text" | perl -MURI::Escape -Mutf8 -CSAD -lne 'print uri_unescape($_)');;
+5) # Plain List
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^\s*(?:[0-9]+(?:\.[0-9]+)*[.)]?|[-+*&gt;]|(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?:\.(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3}))*\.?|\pL[.)])\s*//gi;');;
+6) # Remove Duplicate Lines
+	text=$(printf '%s' "$text" | sort -u);;
+7) # Merge All Lines
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -0777pe 's/[\pZ\pC]+/ /g;' -e 's/^[\pZ\pC]+//g;' -e 's/[\pZ\pC]+$//g;');;
+8) # Remove Empty Lines
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/^[\pZ\pC]+$//g;');;
+9) # Remove Extra Spaces
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/\pZ+/ /g;');;
+10) # Dumb Punctuation
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'‘’ʹ]/'/g;" -e 's/["“”″]/"/g;' -e 's/—/--/g;' -e 's/[-—–‑]/-/g;');;
+11) # Remove Quotes
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'\"‘’“”]//g;");;
+12) # Text Substitution
+	text=$(printf '%s' "$text" | substitute);;
+13) # Transliterate
+	text=$(printf '%s' "$text" | translit);;
+14) # Smart Units
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(\d)(?:\"|'')/\1″/g;" -e "s/(\d)'/\1ʹ/g;" -e 's/(\d)\s*(?:cents?|c)\b/\1¢/gi;' -e 's/(\d)\s*(?:USD)\b/\1\$/gi;' -e 's/(\d)\s*(?:GPB)\b/\1£/gi;' -e 's/(\d)\s*(?:EUR)\b/\1€/gi;' -e 's/(\d)\s*(?:JPY)\b/\1¥/gi;' -e 's/(\d)\s*(?:UAH|ГРН\.?)\b/\1₴/gi;' -e 's/(\d)\s*(?:RUB|РУБ\.?|Р)\b/\1₽/g;' -e 's/(\d)\s*(?:deg)\b/\1°/g;');;
+15) # Smart Punctuation
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(?&lt;=[\pL])\s*'(n)'\s*(?=[\pL])/ ’\1’ /gi;" -e "s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))'(twas|em)(?=[\pZ\pC])/’\1/gi;" -e "s/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\"\/\\|])'/\1‘/g;" -e "s/'/’/g;" -e 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1“/g;' -e 's/"/”/g;' -e 's/\.\.\./…/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\+\/?-(\d)/±\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\-\/?+(\d)/∓\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))-(\d)/−\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))(\d)x\b/\1×/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*[-—]\s*([0-9]*[.,]?[0-9]+)/\1 − \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*x\s*([0-9]*[.,]?[0-9]+)/\1 × \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+|[\pL0-9]+)\s*\/\s*([0-9]*[.,]?[0-9]+|[\pL0-9]+)/\1 ÷ \2/g;' -e 's/-(\s)/–\1/g;' -e 's/--/—/g;');;
+16) # Sentence Case
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(^\s*[\p{Ps}\p{Pe}]*|[.?!\p{Zl}\p{Zp}]\s*)([\pL\pM\p{Nd}\p{Nl}\p{Pc}])/\1\u\2/g;');;
+17) # Upper Case
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\u\1/g;');;
+18) # Lower Case
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\l\1/g;');;
+19) # Title Case
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/([\pL\pM\p{Nd}\p{Nl}\p{Pc}]+)/\u\1/g;');;
+20) # Sort Lines in Ascending Order
+	text=$(printf '%s' "$text" | sort);;
+21) # Sort Lines in Descending Order
+	text=$(printf '%s' "$text" | sort -r);;
+22) # Unordered List
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC]+//g;$_="- $_"if/./;');;
+23) # Ordered List
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC]+//g;$_=++$i.". $_"if/./;');;
+esac
+done
+
+if [[ $1 -eq 0 || -z $text ]]; then
+	kill -HUP $(ps -o ppid= $$)
+fi
+
+printf '%s' "$text"
+
+} # main
+
+translit() {
+
+read -r -d '' CMD &lt;&lt;'EOF'
+my %replace = (
+# Latin
+'À'=&gt;'A', 'Á'=&gt;'A', 'Â'=&gt;'A', 'Ã'=&gt;'A', 'Ä'=&gt;'A', 'Å'=&gt;'A', 'Æ'=&gt;'AE', 'Ç'=&gt;'C', 'È'=&gt;'E', 'É'=&gt;'E', 'Ê'=&gt;'E', 'Ë'=&gt;'E', 'Ì'=&gt;'I', 'Í'=&gt;'I', 'Î'=&gt;'I', 'Ï'=&gt;'I', 'Ð'=&gt;'D', 'Ñ'=&gt;'N', 'Ò'=&gt;'O', 'Ó'=&gt;'O', 'Ô'=&gt;'O', 'Õ'=&gt;'O', 'Ö'=&gt;'O', 'Ő'=&gt;'O', 'Ø'=&gt;'O', 'Ù'=&gt;'U', 'Ú'=&gt;'U', 'Û'=&gt;'U', 'Ü'=&gt;'U', 'Ű'=&gt;'U', 'Ý'=&gt;'Y', 'Ÿ'=&gt;'Y', 'Þ'=&gt;'TH', 'ß'=&gt;'ss', 'à'=&gt;'a', 'á'=&gt;'a', 'â'=&gt;'a', 'ã'=&gt;'a', 'ä'=&gt;'a', 'å'=&gt;'a', 'æ'=&gt;'ae', 'ç'=&gt;'c', 'è'=&gt;'e', 'é'=&gt;'e', 'ê'=&gt;'e', 'ë'=&gt;'e', 'ì'=&gt;'i', 'í'=&gt;'i', 'î'=&gt;'i', 'ï'=&gt;'i', 'ð'=&gt;'d', 'ñ'=&gt;'n', 'ò'=&gt;'o', 'ó'=&gt;'o', 'ô'=&gt;'o', 'õ'=&gt;'o', 'ö'=&gt;'o', 'ő'=&gt;'o', 'ø'=&gt;'o', 'ù'=&gt;'u', 'ú'=&gt;'u', 'û'=&gt;'u', 'ü'=&gt;'u', 'ű'=&gt;'u', 'ý'=&gt;'y', 'þ'=&gt;'th', 'ÿ'=&gt;'y', 
+# Greek
+'Α'=&gt;'A', 'Β'=&gt;'B', 'Γ'=&gt;'G', 'Δ'=&gt;'D', 'Ε'=&gt;'E', 'Ζ'=&gt;'Z', 'Η'=&gt;'H', 'Θ'=&gt;'8', 'Ι'=&gt;'I', 'Κ'=&gt;'K', 'Λ'=&gt;'L', 'Μ'=&gt;'M', 'Ν'=&gt;'N', 'Ξ'=&gt;'3', 'Ο'=&gt;'O', 'Π'=&gt;'P', 'Ρ'=&gt;'R', 'Σ'=&gt;'S', 'Τ'=&gt;'T', 'Υ'=&gt;'Y', 'Φ'=&gt;'F', 'Χ'=&gt;'X', 'Ψ'=&gt;'PS', 'Ω'=&gt;'W', 'Ά'=&gt;'A', 'Έ'=&gt;'E', 'Ί'=&gt;'I', 'Ό'=&gt;'O', 'Ύ'=&gt;'Y', 'Ή'=&gt;'H', 'Ώ'=&gt;'W', 'Ϊ'=&gt;'I', 'Ϋ'=&gt;'Y', 'α'=&gt;'a', 'β'=&gt;'b', 'γ'=&gt;'g', 'δ'=&gt;'d', 'ε'=&gt;'e', 'ζ'=&gt;'z', 'η'=&gt;'h', 'θ'=&gt;'8', 'ι'=&gt;'i', 'κ'=&gt;'k', 'λ'=&gt;'l', 'μ'=&gt;'m', 'ν'=&gt;'n', 'ξ'=&gt;'3', 'ο'=&gt;'o', 'π'=&gt;'p', 'ρ'=&gt;'r', 'σ'=&gt;'s', 'τ'=&gt;'t', 'υ'=&gt;'y', 'φ'=&gt;'f', 'χ'=&gt;'x', 'ψ'=&gt;'ps', 'ω'=&gt;'w', 'ά'=&gt;'a', 'έ'=&gt;'e', 'ί'=&gt;'i', 'ό'=&gt;'o', 'ύ'=&gt;'y', 'ή'=&gt;'h', 'ώ'=&gt;'w', 'ς'=&gt;'s', 'ϊ'=&gt;'i', 'ΰ'=&gt;'y', 'ϋ'=&gt;'y', 'ΐ'=&gt;'i', 
+# Turkish
+'Ş'=&gt;'S', 'İ'=&gt;'I', 'Ç'=&gt;'C', 'Ü'=&gt;'U', 'Ö'=&gt;'O', 'Ğ'=&gt;'G', 'ş'=&gt;'s', 'ı'=&gt;'i', 'ç'=&gt;'c', 'ü'=&gt;'u', 'ö'=&gt;'o', 'ğ'=&gt;'g', 
+# Russian
+'А'=&gt;'A', 'Б'=&gt;'B', 'В'=&gt;'V', 'Г'=&gt;'G', 'Д'=&gt;'D', 'Е'=&gt;'E', 'Ё'=&gt;'Yo', 'Ж'=&gt;'Zh', 'З'=&gt;'Z', 'И'=&gt;'I', 'Й'=&gt;'J', 'К'=&gt;'K', 'Л'=&gt;'L', 'М'=&gt;'M', 'Н'=&gt;'N', 'О'=&gt;'O', 'П'=&gt;'P', 'Р'=&gt;'R', 'С'=&gt;'S', 'Т'=&gt;'T', 'У'=&gt;'U', 'Ф'=&gt;'F', 'Х'=&gt;'H', 'Ц'=&gt;'C', 'Ч'=&gt;'Ch', 'Ш'=&gt;'Sh', 'Щ'=&gt;'Sch', 'Ъ'=&gt;'', 'Ы'=&gt;'Y', 'Ь'=&gt;'', 'Э'=&gt;'E', 'Ю'=&gt;'Yu', 'Я'=&gt;'Ya', 'а'=&gt;'a', 'б'=&gt;'b', 'в'=&gt;'v', 'г'=&gt;'g', 'д'=&gt;'d', 'е'=&gt;'e', 'ё'=&gt;'yo', 'ж'=&gt;'zh', 'з'=&gt;'z', 'и'=&gt;'i', 'й'=&gt;'j', 'к'=&gt;'k', 'л'=&gt;'l', 'м'=&gt;'m', 'н'=&gt;'n', 'о'=&gt;'o', 'п'=&gt;'p', 'р'=&gt;'r', 'с'=&gt;'s', 'т'=&gt;'t', 'у'=&gt;'u', 'ф'=&gt;'f', 'х'=&gt;'h', 'ц'=&gt;'c', 'ч'=&gt;'ch', 'ш'=&gt;'sh', 'щ'=&gt;'sch', 'ъ'=&gt;'', 'ы'=&gt;'y', 'ь'=&gt;'', 'э'=&gt;'e', 'ю'=&gt;'yu', 'я'=&gt;'ya',
+# Ukrainian
+'Є'=&gt;'Ye', 'І'=&gt;'I', 'Ї'=&gt;'Yi', 'Ґ'=&gt;'G', 'є'=&gt;'ye', 'і'=&gt;'i', 'ї'=&gt;'yi', 'ґ'=&gt;'g', 
+# Czech
+'Č'=&gt;'C', 'Ď'=&gt;'D', 'Ě'=&gt;'E', 'Ň'=&gt;'N', 'Ř'=&gt;'R', 'Š'=&gt;'S', 'Ť'=&gt;'T', 'Ů'=&gt;'U', 'Ž'=&gt;'Z', 'č'=&gt;'c', 'ď'=&gt;'d', 'ě'=&gt;'e', 'ň'=&gt;'n', 'ř'=&gt;'r', 'š'=&gt;'s', 'ť'=&gt;'t', 'ů'=&gt;'u', 'ž'=&gt;'z', 
+# Polish
+'Ą'=&gt;'A', 'Ć'=&gt;'C', 'Ę'=&gt;'e', 'Ł'=&gt;'L', 'Ń'=&gt;'N', 'Ó'=&gt;'o', 'Ś'=&gt;'S', 'Ź'=&gt;'Z', 'Ż'=&gt;'Z', 'ą'=&gt;'a', 'ć'=&gt;'c', 'ę'=&gt;'e', 'ł'=&gt;'l', 'ń'=&gt;'n', 'ó'=&gt;'o', 'ś'=&gt;'s', 'ź'=&gt;'z', 'ż'=&gt;'z', 
+# Latvian
+'Ā'=&gt;'A', 'Č'=&gt;'C', 'Ē'=&gt;'E', 'Ģ'=&gt;'G', 'Ī'=&gt;'i', 'Ķ'=&gt;'k', 'Ļ'=&gt;'L', 'Ņ'=&gt;'N', 'Š'=&gt;'S', 'Ū'=&gt;'u', 'Ž'=&gt;'Z', 'ā'=&gt;'a', 'č'=&gt;'c', 'ē'=&gt;'e', 'ģ'=&gt;'g', 'ī'=&gt;'i', 'ķ'=&gt;'k', 'ļ'=&gt;'l', 'ņ'=&gt;'n', 'š'=&gt;'s', 'ū'=&gt;'u', 'ž'=&gt;'z',
+# Extended
+'‚'=&gt;',', 'ƒ'=&gt;'f', '„'=&gt;'"', '…'=&gt;'...', '†'=&gt;'+', '‡'=&gt;'++', 'ˆ'=&gt;'^', '‰'=&gt;'per mille', '‹'=&gt;'\'', 'Œ'=&gt;'OE', '‘'=&gt;'\'', '’'=&gt;'\'', '“'=&gt;'"', '”'=&gt;'"', '•'=&gt;'*', '–'=&gt;'-', '—'=&gt;'-', '˜'=&gt;'~', '™'=&gt;'(tm)', 'š'=&gt;'s', '›'=&gt;'\'', 'œ'=&gt;'oe', ' '=&gt;' ', '¢'=&gt;'c', '£'=&gt;'L', '€'=&gt;'euro', '¥'=&gt;'yen', '÷'=&gt;'/', '¡'=&gt;'!', '¤'=&gt;'$', '¦'=&gt;'|', '§'=&gt;'S', '©'=&gt;'(c)', '«'=&gt;'"', '®'=&gt;'(r)', '°'=&gt;'deg', '±'=&gt;'+-', '´'=&gt;'\'', 'µ'=&gt;'u', '·'=&gt;'*', '»'=&gt;'"', '¿'=&gt;'?', '­'=&gt;'-'
+);
+s/(@{[join "|", keys %replace]})/$replace{$1}/g;
+print;
+EOF
+
+perl -Mutf8 -CSAD -0777ne "$CMD" -e 's/[^\x00-\x7F]//gi;'
+
+} # translit
+
+PLISTBUDDY=/usr/libexec/PlistBuddy
+
+read_dom() {
+    local IFS=\&gt;
+    read -r -d \&lt; ENTITY CONTENT
+}
+
+dict=$("$PLISTBUDDY" -x -c "Print NSUserDictionaryReplacementItems" ~/Library/Preferences/.GlobalPreferences.plist 2&gt;/dev/null)
+
+if [[ -z $dict ]]; then
+	dict=$("$PLISTBUDDY" -x -c "Print NSUserReplacementItems" ~/Library/Preferences/.GlobalPreferences.plist 2&gt;/dev/null)
+fi
+
+substitute() {
+	text=$(&lt;/dev/stdin)
+
+	while read_dom; do
+		if [[ $ENTITY = '/dict' ]]; then
+			if [[ $on -eq 1 ]]; then
+				# replace
+				text=$(printf '%s' "$text" | perl -Mutf8 -MHTML::Entities -CSAD -0777pe 'BEGIN{$s=quotemeta(decode_entities(shift));$r=decode_entities(shift);}s/$s/$r/gi;' "$replace" "$with")
+				
+			fi
+		fi
+		if [[ $ENTITY = 'dict' || $ENTITY = '/dict' ]]; then
+			key=''
+			replace=''
+			with=''
+			on=0
+		fi
+		if [[ $ENTITY = 'key' ]]; then
+			key="$CONTENT"
+			continue
+	    fi
+	    if [[ $ENTITY = '/key' ]]; then
+			continue
+	    fi
+	    if [[ $key ]]; then
+		    case "$key" in
+		    	'on')
+					on="$CONTENT";;
+		    	'replace')
+					replace="$CONTENT";;
+		    	'with')
+					with="$CONTENT";;
+			esac
+			key=''
+	    fi
+	done &lt;&lt;&lt;"$dict"
+
+	printf '%s' "$text"
+} #substitute
+
+main "$@"</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/bash</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>Disabled</key>
+				<false/>
+				<key>InputUUID</key>
+				<string>A748332E-0B2D-43A7-AD79-82FF255D2D28</string>
+				<key>Keywords</key>
+				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
+					<string>Run</string>
+					<string>Unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>7DF1BF67-7E0B-4986-9D65-49E1A153E8F5</string>
+				<key>UUID</key>
+				<string>06488E09-ED76-4692-98A2-CDB5798DEE6F</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>318.500000:499.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict>
+		<key>19EFBFCD-ABE6-4FA4-B10D-79D59849562A</key>
+		<dict>
+			<key>from</key>
+			<string>1D1DA370-B1A8-417B-BD18-BFB79389A39B - 1D1DA370-B1A8-417B-BD18-BFB79389A39B</string>
+			<key>to</key>
+			<string>06488E09-ED76-4692-98A2-CDB5798DEE6F - 06488E09-ED76-4692-98A2-CDB5798DEE6F</string>
+		</dict>
+	</dict>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.text</string>
+		<key>serviceProcessesInput</key>
+		<integer>0</integer>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>
