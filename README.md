@@ -44,21 +44,21 @@ Note: by default, TextFlow removes any formatting from the text.
 
 1. Download [the latest release](https://github.com/vmdanilov/TextFlow/archive/master.zip).
 2. Unpack the archive.
-3. Double click workflows to install for a current user. If Gatekeeper does not allow the installation, right-click (or `⌘ Command` + Click) on a workflow and choose Open.
+3. Double click workflows to install for a current user. If Gatekeeper does not allow the installation, right-click (or <kbd>⌘ Command</kbd> + Click) on a workflow and choose Open.
 
 ## Usage
 
 1. Run TextFlow workflows from Services menu of current application.
 2. Select transforms from the next list.
-3. Click *OK* or press `⎋ Esc` to apply, click *Cancel* or press `↵ Enter` to cancel.
+3. Click *OK* or press <kbd>⎋ Esc</kbd> to apply, click *Cancel* or press <kbd>↵ Enter</kbd> to cancel.
 
 You can assign global shortcuts via * > System Preferences > Keyboard > Shortcuts > Services > Text*.
 
 Recommended shortcuts:
 
-- *Paste Transformed Text*: `⌃⌥⌘V`
-- *Transform Selected Text*: `⌃⌥⌘T`
-- *Paste Unformatted Text*\*: `⇧⌘V`
+- *Paste Transformed Text*: <kbd>⌃ Control</kbd><kbd>⌥ Option</kbd><kbd>⌘ Command</kbd><kbd>V</kbd>
+- *Transform Selected Text*: <kbd>⌃ Control</kbd><kbd>⌥ Option</kbd><kbd>⌘ Command</kbd><kbd>T</kbd>
+- *Paste Unformatted Text*\*: <kbd>⇧ Shift</kbd><kbd>⌘ Command</kbd><kbd>V</kbd>
 
 \* – For the sake of consistency, it is also recommended to assign the same global shortcut to *Paste and Match Style Command* via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*.
 
@@ -66,7 +66,7 @@ Recommended shortcuts:
 
 ## Contributing
 
-Please report bugs, share your ideas or code on Github [TextFlow](/) or Twitter [@vmdanilov](https://twitter.com/vmdanilov).
+Please report bugs, share your ideas or code on Github [TextFlow](https://github.com/vmdanilov/TextFlow) or Twitter [@vmdanilov](https://twitter.com/vmdanilov).
 
 If you like the project, you may [donate some money](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9P6XZDBV7UJKE) via PayPal.
 
