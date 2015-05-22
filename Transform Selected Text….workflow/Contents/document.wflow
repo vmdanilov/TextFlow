@@ -261,6 +261,12 @@ perl -Mutf8 -CSAD -0777ne "$CMD" -e 's/[^\x00-\x7F]//gi;'
 
 PLISTBUDDY=/usr/libexec/PlistBuddy
 
+esc_str() {
+	str=${1//\\/\\\\}
+	str=${str//\'/\\\'}
+	printf '%s' "$str"
+}
+
 read_dom() {
     local IFS=\&gt;
     read -r -d \&lt; ENTITY CONTENT
@@ -274,13 +280,13 @@ fi
 
 substitute() {
 	text=$(&lt;/dev/stdin)
+	table=''
 
 	while read_dom; do
 		if [[ $ENTITY = '/dict' ]]; then
 			if [[ $on -eq 1 ]]; then
 				# replace
-				text=$(printf '%s' "$text" | perl -Mutf8 -MHTML::Entities -CSAD -0777pe 'BEGIN{$s=quotemeta(decode_entities(shift));$r=decode_entities(shift);}s/$s/$r/gi;' "$replace" "$with")
-				
+				table="$table '$(esc_str "$replace")','$(esc_str "$with")',"
 			fi
 		fi
 		if [[ $ENTITY = 'dict' || $ENTITY = '/dict' ]]; then
@@ -308,8 +314,9 @@ substitute() {
 			key=''
 	    fi
 	done &lt;&lt;&lt;"$dict"
+	
+	printf '%s' "$text" | perl -Mutf8 -MHTML::Entities -CSAD -0777pe 'BEGIN{%table=('"$table"');%table=map{decode_entities($_),decode_entities($table{$_})}keys%table;$search=join("|",map{quotemeta}keys%table);}s/$search/$table{$&amp;}/gi;'
 
-	printf '%s' "$text"
 } #substitute
 
 main "$@"</string>
