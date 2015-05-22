@@ -40,6 +40,7 @@ By default, TextFlow removes any formatting from the text.
 - Unordered List
 - Ordered List
 - Copy to Clipboard†
+<<<<<<< HEAD
 
 \* – Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.
 
