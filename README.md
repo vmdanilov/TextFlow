@@ -39,11 +39,11 @@ By default, TextFlow removes any formatting from the text.
 - Sort Lines in Descending Order
 - Unordered List
 - Ordered List
-- Copy to Clipboard†
+- Copy to Clipboard\*\*
 
 \* – Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.
 
-† – Some contenteditable fields in browsers ignore TextFlow output and paste from Clipboard. Include this option to fix the issue.
+\*\* – Some contenteditable fields in browsers ignore TextFlow output and instead paste from Clipboard. Include this option to fix the issue.
 
 ## Install
 
