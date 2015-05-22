@@ -4,7 +4,7 @@ TextFlow is a set of Automator workflows for text manipulation in any OS X text 
 
 <img src="screenshots/screenshot-textflow-menu.png" alt="Screenshot of TextFlow menu" width="600" height="321">
 
-<img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="664">
+<img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="683">
 
 ## Workflows
 
@@ -37,8 +37,11 @@ TextFlow is a set of Automator workflows for text manipulation in any OS X text 
 - Sort Lines in Descending Order
 - Unordered List
 - Ordered List
+- Copy to Clipboard\*
 
 Note: by default, TextFlow removes any formatting from the text.
+
+\* – Some contenteditable fields in browsers ignore TextFlow output and paste from Clipboard. Include this option to fix the issue.
 
 ## Install
 
