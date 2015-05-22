@@ -14,6 +14,8 @@ TextFlow is a set of Automator workflows for text manipulation in any OS X text 
 
 ## Text transforms
 
+By default, TextFlow removes any formatting from the text.
+
 - Fix Paragraphs
 - Extract URL
 - Extract Email Address
@@ -25,7 +27,7 @@ TextFlow is a set of Automator workflows for text manipulation in any OS X text 
 - Remove Extra Spaces
 - Dumb Punctuation
 - Remove Quotes
-- Text Substitution
+- Text Substitution\*
 - Transliterate
 - Smart Units
 - Smart Punctuation
@@ -37,11 +39,11 @@ TextFlow is a set of Automator workflows for text manipulation in any OS X text 
 - Sort Lines in Descending Order
 - Unordered List
 - Ordered List
-- Copy to Clipboard\*
+- Copy to Clipboard†
 
-Note: by default, TextFlow removes any formatting from the text.
+\* – Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.
 
-\* – Some contenteditable fields in browsers ignore TextFlow output and paste from Clipboard. Include this option to fix the issue.
+† – Some contenteditable fields in browsers ignore TextFlow output and paste from Clipboard. Include this option to fix the issue.
 
 ## Install
 
