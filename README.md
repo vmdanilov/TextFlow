@@ -31,10 +31,10 @@ By default, TextFlow removes any formatting from the text.
 - Transliterate
 - Smart Units
 - Smart Punctuation
-- Sentence Case
 - Upper Case
 - Lower Case
 - Title Case
+- Sentence Case
 - Sort Lines in Ascending Order
 - Sort Lines in Descending Order
 - Unordered List

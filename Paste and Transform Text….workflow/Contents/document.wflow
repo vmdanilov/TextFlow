@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		tell application "System Events"		set activeProcessId to unix id of first process whose frontmost is true	end tell		tell me to activate		set theFormatList to {"Fix Paragraphs", "Extract URL", "Extract Email Address", "Unescape URL", "Plain List", "Remove Duplicate Lines", "Merge All Lines", "Remove Empty Lines", "Remove Extra Spaces", "Dumb Punctuation", "Remove Quotes", "Text Substitution", "Transliterate", "Smart Units", "Smart Punctuation", "Sentence Case", "Upper Case", "Lower Case", "Title Case", "Sort Lines in Ascending Order", "Sort Lines in Descending Order", "Unordered List", "Ordered List", "Copy to Clipboard"}		set defaultFormat to ""	try		set defaultFormat to do shell script "defaults read com.services.textworkflows 'Format' 2&gt;/dev/null" as text	end try	set defaultFormat to words of defaultFormat		set defaultFormatItems to {}	repeat with i from 1 to count defaultFormat		try			set end of defaultFormatItems to item (item i of defaultFormat) of theFormatList		end try	end repeat		set choices to choose from list theFormatList with title "TextFlow – Paste and Transform Text" with prompt "Please select text transforms:" default items defaultFormatItems with multiple selections allowed and empty selection allowed		set input to {}		if choices = false then				set input to {"0"}			else				repeat with i from 1 to count theFormatList			if choices contains item i of theFormatList then				set end of input to i as string			end if		end repeat				set AppleScript's text item delimiters to {", "}		if (input as string) ≠ (defaultFormat as string) then			try				do shell script "defaults write com.services.textworkflows 'Format' " &amp; quoted form of (input as string) &amp; " 2&gt;/dev/null"			end try		end if			end if		try		tell application "System Events"			set the frontmost of first process whose unix id is activeProcessId to true		end tell	end try		return inputend run</string>
+					<string>on run {input, parameters}		tell application "System Events"		set activeProcessId to unix id of first process whose frontmost is true	end tell		tell me to activate		set theFormatList to {"Fix Paragraphs", "Extract URL", "Extract Email Address", "Unescape URL", "Plain List", "Remove Duplicate Lines", "Merge All Lines", "Remove Empty Lines", "Remove Extra Spaces", "Dumb Punctuation", "Remove Quotes", "Text Substitution", "Transliterate", "Smart Units", "Smart Punctuation", "Upper Case", "Lower Case", "Title Case", "Sentence Case", "Sort Lines in Ascending Order", "Sort Lines in Descending Order", "Unordered List", "Ordered List", "Copy to Clipboard"}		set defaultFormat to ""	try		set defaultFormat to do shell script "defaults read com.services.textworkflows 'Format' 2&gt;/dev/null" as text	end try	set defaultFormat to words of defaultFormat		set defaultFormatItems to {}	repeat with i from 1 to count defaultFormat		try			set end of defaultFormatItems to item (item i of defaultFormat) of theFormatList		end try	end repeat		set choices to choose from list theFormatList with title "TextFlow – Paste and Transform Text" with prompt "Please select text transforms:" default items defaultFormatItems with multiple selections allowed and empty selection allowed		set input to {}		if choices = false then				set input to {"0"}			else				repeat with i from 1 to count theFormatList			if choices contains item i of theFormatList then				set end of input to i as string			end if		end repeat				set AppleScript's text item delimiters to {", "}		if (input as string) ≠ (defaultFormat as string) then			try				do shell script "defaults write com.services.textworkflows 'Format' " &amp; quoted form of (input as string) &amp; " 2&gt;/dev/null"			end try		end if			end if		try		tell application "System Events"			set the frontmost of first process whose unix id is activeProcessId to true		end tell	end try		return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>311.000000:316.000000</string>
+				<string>311.000000:326.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -198,14 +198,14 @@ case $x in
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(\d)(?:\"|'')/\1″/g;" -e "s/(\d)'/\1ʹ/g;" -e 's/(\d)\s*(?:cents?|c)\b/\1¢/gi;' -e 's/(\d)\s*(?:USD)\b/\1\$/gi;' -e 's/(\d)\s*(?:GPB)\b/\1£/gi;' -e 's/(\d)\s*(?:EUR)\b/\1€/gi;' -e 's/(\d)\s*(?:JPY)\b/\1¥/gi;' -e 's/(\d)\s*(?:UAH|ГРН\.?)\b/\1₴/gi;' -e 's/(\d)\s*(?:RUB|РУБ\.?|Р)\b/\1₽/g;' -e 's/(\d)\s*(?:deg)\b/\1°/g;');;
 15) # Smart Punctuation
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(?&lt;=[\pL])\s*'(n)'\s*(?=[\pL])/ ’\1’ /gi;" -e "s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))'(twas|em)(?=[\pZ\pC])/’\1/gi;" -e "s/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\"\/\\|])'/\1‘/g;" -e "s/'/’/g;" -e 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1“/g;' -e 's/"/”/g;' -e 's/\.\.\./…/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\+\/?-(\d)/±\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\-\/?+(\d)/∓\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))-(\d)/−\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))(\d)x\b/\1×/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*[-—]\s*([0-9]*[.,]?[0-9]+)/\1 − \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*x\s*([0-9]*[.,]?[0-9]+)/\1 × \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+|[\pL0-9]+)\s*\/\s*([0-9]*[.,]?[0-9]+|[\pL0-9]+)/\1 ÷ \2/g;' -e 's/-(\s)/–\1/g;' -e 's/--/—/g;');;
-16) # Sentence Case
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(^\s*[\p{Ps}\p{Pe}]*|[.?!\p{Zl}\p{Zp}]\s*)([\pL\pM\p{Nd}\p{Nl}\p{Pc}])/\1\u\2/g;');;
-17) # Upper Case
+16) # Upper Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\u\1/g;');;
-18) # Lower Case
+17) # Lower Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\l\1/g;');;
-19) # Title Case
+18) # Title Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/([\pL\pM\p{Nd}\p{Nl}\p{Pc}]+)/\u\1/g;');;
+19) # Sentence Case
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\l\1/g;' -e 's/(^\s*[\p{Ps}\p{Pe}]*|[.?!\p{Zl}\p{Zp}]\s+)([\pL\pM\p{Nd}\p{Nl}\p{Pc}])/\1\u\2/g;');;
 20) # Sort Lines in Ascending Order
 	text=$(printf '%s' "$text" | sort);;
 21) # Sort Lines in Descending Order
@@ -433,7 +433,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>311.000000:712.000000</string>
+				<string>311.000000:710.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -443,7 +443,7 @@ main "$@"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>9DD7E6E6-7EB6-41E8-9C46-320AA5AF322A</key>
+		<key>C857D5D0-C7B5-47B0-B0E2-8FCB0436036E</key>
 		<dict>
 			<key>from</key>
 			<string>1D1DA370-B1A8-417B-BD18-BFB79389A39B - 1D1DA370-B1A8-417B-BD18-BFB79389A39B</string>
