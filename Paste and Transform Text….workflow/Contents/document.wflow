@@ -230,7 +230,8 @@ printf '%s' "$text"
 translit() {
 
 read -r -d '' CMD &lt;&lt;'EOF'
-my %replace = (
+BEGIN {
+%replace = (
 # Latin
 'À'=&gt;'A', 'Á'=&gt;'A', 'Â'=&gt;'A', 'Ã'=&gt;'A', 'Ä'=&gt;'A', 'Å'=&gt;'A', 'Æ'=&gt;'AE', 'Ç'=&gt;'C', 'È'=&gt;'E', 'É'=&gt;'E', 'Ê'=&gt;'E', 'Ë'=&gt;'E', 'Ì'=&gt;'I', 'Í'=&gt;'I', 'Î'=&gt;'I', 'Ï'=&gt;'I', 'Ð'=&gt;'D', 'Ñ'=&gt;'N', 'Ò'=&gt;'O', 'Ó'=&gt;'O', 'Ô'=&gt;'O', 'Õ'=&gt;'O', 'Ö'=&gt;'O', 'Ő'=&gt;'O', 'Ø'=&gt;'O', 'Ù'=&gt;'U', 'Ú'=&gt;'U', 'Û'=&gt;'U', 'Ü'=&gt;'U', 'Ű'=&gt;'U', 'Ý'=&gt;'Y', 'Ÿ'=&gt;'Y', 'Þ'=&gt;'TH', 'ß'=&gt;'ss', 'à'=&gt;'a', 'á'=&gt;'a', 'â'=&gt;'a', 'ã'=&gt;'a', 'ä'=&gt;'a', 'å'=&gt;'a', 'æ'=&gt;'ae', 'ç'=&gt;'c', 'è'=&gt;'e', 'é'=&gt;'e', 'ê'=&gt;'e', 'ë'=&gt;'e', 'ì'=&gt;'i', 'í'=&gt;'i', 'î'=&gt;'i', 'ï'=&gt;'i', 'ð'=&gt;'d', 'ñ'=&gt;'n', 'ò'=&gt;'o', 'ó'=&gt;'o', 'ô'=&gt;'o', 'õ'=&gt;'o', 'ö'=&gt;'o', 'ő'=&gt;'o', 'ø'=&gt;'o', 'ù'=&gt;'u', 'ú'=&gt;'u', 'û'=&gt;'u', 'ü'=&gt;'u', 'ű'=&gt;'u', 'ý'=&gt;'y', 'þ'=&gt;'th', 'ÿ'=&gt;'y', 
 # Greek
@@ -250,11 +251,13 @@ my %replace = (
 # Extended
 '‚'=&gt;',', 'ƒ'=&gt;'f', '„'=&gt;'"', '…'=&gt;'...', '†'=&gt;'+', '‡'=&gt;'++', 'ˆ'=&gt;'^', '‰'=&gt;'per mille', '‹'=&gt;'\'', 'Œ'=&gt;'OE', '‘'=&gt;'\'', '’'=&gt;'\'', '“'=&gt;'"', '”'=&gt;'"', '•'=&gt;'*', '–'=&gt;'-', '—'=&gt;'-', '˜'=&gt;'~', '™'=&gt;'(tm)', 'š'=&gt;'s', '›'=&gt;'\'', 'œ'=&gt;'oe', ' '=&gt;' ', '¢'=&gt;'c', '£'=&gt;'L', '€'=&gt;'euro', '¥'=&gt;'yen', '÷'=&gt;'/', '¡'=&gt;'!', '¤'=&gt;'$', '¦'=&gt;'|', '§'=&gt;'S', '©'=&gt;'(c)', '«'=&gt;'"', '®'=&gt;'(r)', '°'=&gt;'deg', '±'=&gt;'+-', '´'=&gt;'\'', 'µ'=&gt;'u', '·'=&gt;'*', '»'=&gt;'"', '¿'=&gt;'?', '­'=&gt;'-'
 );
-s/(@{[join "|", keys %replace]})/$replace{$1}/g;
-print;
+$search=join("|", keys %replace);
+}
+s/$search/$replace{$&amp;}/g;
+s/[^\x00-\x7F]//gi;
 EOF
 
-perl -Mutf8 -CSAD -0777ne "$CMD" -e 's/[^\x00-\x7F]//gi;'
+perl -Mutf8 -CSAD -0777pe "$CMD"
 
 } # translit
 
