@@ -55,7 +55,7 @@ By default, TextFlow removes any formatting from the text.
 
 1. Run TextFlow workflows from Services menu of current application.
 2. Select transforms from the next list.
-3. Click *OK* or press <kbd>⎋ Esc</kbd> to apply, click *Cancel* or press <kbd>↵ Enter</kbd> to cancel.
+3. Click *OK* or press <kbd>↵ Enter</kbd> to apply, click *Cancel* or press <kbd>⎋ Esc</kbd> to cancel.
 
 You can assign global shortcuts via * > System Preferences > Keyboard > Shortcuts > Services > Text*.
 
