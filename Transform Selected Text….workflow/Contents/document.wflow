@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>311.000000:316.000000</string>
+				<string>318.500000:316.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -198,7 +198,7 @@ case $x in
 14) # Smart Units
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(\d)(?:\"|'')/\1″/g;" -e "s/(\d)'/\1ʹ/g;" -e 's/(\d)\s*(?:cents?|c)\b/\1¢/gi;' -e 's/(\d)\s*(?:USD)\b/\1\$/gi;' -e 's/(\d)\s*(?:GPB)\b/\1£/gi;' -e 's/(\d)\s*(?:EUR)\b/\1€/gi;' -e 's/(\d)\s*(?:JPY)\b/\1¥/gi;' -e 's/(\d)\s*(?:UAH|ГРН\.?)\b/\1₴/gi;' -e 's/(\d)\s*(?:RUB|РУБ\.?|Р)\b/\1₽/g;' -e 's/(\d)\s*(?:deg)\b/\1°/g;');;
 15) # Smart Punctuation
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(?&lt;=[\pL])\s*'(n)'\s*(?=[\pL])/ ’\1’ /gi;" -e "s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))'(twas|em)(?=[\pZ\pC])/’\1/gi;" -e "s/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\"\/\\|])'/\1‘/g;" -e "s/'/’/g;" -e 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1“/g;' -e 's/"/”/g;' -e 's/\.\.\./…/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\+\/?-(\d)/±\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\-\/?+(\d)/∓\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))-(\d)/−\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))(\d)x\b/\1×/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*[-—]\s*([0-9]*[.,]?[0-9]+)/\1 − \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*x\s*([0-9]*[.,]?[0-9]+)/\1 × \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+|[\pL0-9]+)\s*\/\s*([0-9]*[.,]?[0-9]+|[\pL0-9]+)/\1 ÷ \2/g;' -e 's/-(\s)/–\1/g;' -e 's/--/—/g;');;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(?&lt;=[\pL])\s*'(n)'\s*(?=[\pL])/ ’\1’ /gi;" -e "s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))'((?:twas|tis)(?:n't)?|em)(?=[\pZ\pC])/’\1/gi;" -e "s/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\"\/\\|])'/\1‘/g;" -e "s/'/’/g;" -e 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1“/g;' -e 's/"/”/g;' -e 's/\.\.\./…/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\+\/?-(\d)/±\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\-\/?+(\d)/∓\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))-(\d)/−\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))(\d)x\b/\1×/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*[-—]\s*([0-9]*[.,]?[0-9]+)/\1 − \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*x\s*([0-9]*[.,]?[0-9]+)/\1 × \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+|[\pL0-9]+)\s*\/\s*([0-9]*[.,]?[0-9]+|[\pL0-9]+)/\1 ÷ \2/g;' -e 's/-(\s)/–\1/g;' -e 's/--/—/g;');;
 16) # Upper Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\u\1/g;');;
 17) # Lower Case
@@ -435,7 +435,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>311.000000:675.000000</string>
+				<string>318.500000:499.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -445,7 +445,7 @@ main "$@"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>66CCF565-0519-4136-BC25-BF088A00CAA7</key>
+		<key>2A498949-287D-4EA3-BEBC-F19C234820A0</key>
 		<dict>
 			<key>from</key>
 			<string>2ED510B4-FEEB-4402-B478-6EF9F273580D - 2ED510B4-FEEB-4402-B478-6EF9F273580D</string>
