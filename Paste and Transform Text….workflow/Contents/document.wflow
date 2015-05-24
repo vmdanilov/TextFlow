@@ -290,6 +290,7 @@ substitute() {
 		if [[ $ENTITY = '/dict' ]]; then
 			if [[ $on -eq 1 ]]; then
 				# replace
+				# table="$table '$(esc_str "$replace")','$(esc_str "$with")',"
 				table="$table '$(esc_str "$replace")','$(esc_str "$with")',"
 			fi
 		fi
@@ -318,8 +319,8 @@ substitute() {
 			key=''
 	    fi
 	done &lt;&lt;&lt;"$dict"
-	
-	printf '%s' "$text" | perl -Mutf8 -MHTML::Entities -CSAD -0777pe 'BEGIN{%table=('"$table"');%table=map{decode_entities($_),decode_entities($table{$_})}keys%table;$search=join("|",map{quotemeta}keys%table);}s/$search/$table{$&amp;}/gi;'
+
+	printf '%s' "$text" | perl -Mutf8 -MHTML::Entities -CSAD -0777pe 'BEGIN{%table=('"$table"');%table=map{decode_entities(lc($_)),decode_entities($table{$_})}keys%table;$search=join("|",map{quotemeta}keys%table);}s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))($search)(?:(?=[\pZ\pC\pP\pS])|$)/$table{lc($1)}/gi;'
 
 } #substitute
 
