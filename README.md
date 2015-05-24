@@ -40,9 +40,8 @@ By default, TextFlow removes any formatting from the text.
 - Blockquote
 - Copy to Clipboard\*\*
 
-\* – Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.
-
-\*\* – Some contenteditable fields in browsers ignore TextFlow output and instead paste from Clipboard. Include this option to fix the issue.
+\* Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.  
+\*\* Some contenteditable fields in browsers ignore TextFlow output and instead paste from Clipboard. Include this option to fix the issue.
 
 ## Install
 
@@ -50,7 +49,7 @@ By default, TextFlow removes any formatting from the text.
 2. Unpack the archive.
 3. Double click workflows to install for a current user (installed at *~/Library/Services*).\*
 
-\* – If Gatekeeper does not allow installation, right-click (or <kbd>⌃ Control</kbd> + click) on a workflow and choose *Open*.
+\* If Gatekeeper does not allow installation, right-click (or <kbd>⌃ Control</kbd> + click) on a workflow and choose *Open*.
 
 ## Usage
 
@@ -66,7 +65,7 @@ Recommended shortcuts:
 - *Transform Selected Text*: <kbd>⌃ Control</kbd> <kbd>⌥ Option</kbd> <kbd>⌘ Command</kbd> <kbd>T</kbd>
 - *Paste as Plain Text*\*: <kbd>⇧ Shift</kbd> <kbd>⌘ Command</kbd> <kbd>V</kbd>
 
-\* – It is also recommended to assign the same global shortcut to *Paste and Match Style* command via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*. This will effectively allow you to have the same shortcut for *Paste and Match Style*, or *Paste as Plain Text*, in every application.
+\* It is also recommended to assign the same global shortcut to *Paste and Match Style* command via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*. This will effectively allow you to have the same shortcut for *Paste and Match Style*, or *Paste as Plain Text*, in every application.
 
 <img src="screenshots/screenshot-paste-and-match-style-shortcut.png" alt="Screenshot of assigning Paste and Match Style shortcut for all Apps" width="780">
 
