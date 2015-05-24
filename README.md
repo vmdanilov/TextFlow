@@ -50,7 +50,7 @@ By default, TextFlow removes any formatting from the text.
 2. Unpack the archive.
 3. Double click workflows to install for a current user (installed at *~/Library/Services*).\*
 
-\* – If Gatekeeper does not allow installation, right-click (or <kbd>⌃ Control</kbd> + click) on a workflow and choose Open.
+\* – If Gatekeeper does not allow installation, right-click (or <kbd>⌃ Control</kbd> + click) on a workflow and choose *Open*.
 
 ## Usage
 
