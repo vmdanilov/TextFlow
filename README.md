@@ -4,7 +4,7 @@ TextFlow is a set of Automator workflows for text manipulation in any OS X text 
 
 <img src="screenshots/screenshot-textflow-menu.png" alt="Screenshot of TextFlow menu" width="600" height="321">
 
-<img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="683">
+<img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="702">
 
 ## Workflows
 
@@ -39,6 +39,7 @@ By default, TextFlow removes any formatting from the text.
 - Sort Lines in Descending Order
 - Unordered List
 - Ordered List
+- Blockquote
 - Copy to Clipboard\*\*
 
 \* – Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.
