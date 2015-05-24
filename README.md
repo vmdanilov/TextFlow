@@ -2,9 +2,7 @@
 
 TextFlow is a set of Automator workflows for text manipulation in any OS X text control where built-in OS X text tools might be unavailable or insufficient.
 
-<img src="screenshots/screenshot-textflow-menu.png" alt="Screenshot of TextFlow menu" width="600" height="321">
-
-<img src="screenshots/screenshot-textflow-transforms.png" alt="Screenshot of TextFlow transforms" width="384" height="702">
+<img src="screenshots/screenshot-textflow.png" alt="Screenshot of TextFlow" width="935" height="687">
 
 ## Workflows
 
@@ -50,7 +48,9 @@ By default, TextFlow removes any formatting from the text.
 
 1. Download [the latest release](https://github.com/vmdanilov/TextFlow/archive/master.zip).
 2. Unpack the archive.
-3. Double click workflows to install for a current user. If Gatekeeper does not allow the installation, right-click (or <kbd>⌃ Control</kbd> + Click) on a workflow and choose Open.
+3. Double click workflows to install for a current user (installed at *~/Library/Services*).\*
+
+\* – If Gatekeeper does not allow installation, right-click (or <kbd>⌃ Control</kbd> + click) on a workflow and choose Open.
 
 ## Usage
 
@@ -66,7 +66,7 @@ Recommended shortcuts:
 - *Transform Selected Text*: <kbd>⌃ Control</kbd> <kbd>⌥ Option</kbd> <kbd>⌘ Command</kbd> <kbd>T</kbd>
 - *Paste as Plain Text*\*: <kbd>⇧ Shift</kbd> <kbd>⌘ Command</kbd> <kbd>V</kbd>
 
-\* – For the sake of consistency, it is also recommended to assign the same global shortcut to *Paste and Match Style* command via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*.
+\* – It is also recommended to assign the same global shortcut to *Paste and Match Style* command via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*. This will effectively allow you to have the same shortcut for *Paste and Match Style*, or *Paste as Plain Text*, in every application.
 
 <img src="screenshots/screenshot-paste-and-match-style-shortcut.png" alt="Screenshot of assigning Paste and Match Style shortcut for all Apps" width="780" height="693">
 
