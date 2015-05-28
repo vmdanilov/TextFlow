@@ -172,7 +172,7 @@ case $x in
 1) # Fix Paragraphs
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC\pP\pS]+//g;' -e 's/[\pZ\pC]+$//g;' | perl -Mutf8 -CSAD -0777pe 's/[\pZ\pC]*[\r\n][\pZ\pC]*[\r\n][\pZ\pC]*/'$'\n'$'\n''/g;' -e 's/(?&lt;!\n)\n(?!\n)/ /g;' | perl -Mutf8 -CSAD -lpe 's/[\pZ\pC]+/ /g;' -e 's/^[\pZ\pC]+//g;' -e 's/[\pZ\pC]+$//g;');;
 2) # Extract URL
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/((?:[A-Za-z][A-Za-z+.-]*:)?(?:\/\/)?[{\pL\pN@!$&amp;*=^`|~#%+\/?_}-][^\s]*\.[^\s]*[{\pL\pN@!$&amp;*=^`|~#%+\/_}-])/g){push @l, $1};END{printf "%s", join "\n", @l;}');;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/(?&gt;(?&lt;=[\pZ\pC\p{Ps}\p{Pe}\p{Pi}\p{Pf}@])|^)(?![\pZ\pC\p{Ps}\p{Pe}\p{Pi}\p{Pf}@])((?:(?:[a-z][a-z+.-]*:)?\/{1,3}(?:[^\pZ\pC&lt;&gt;.:@\/]+\.|[^\pZ\pC&lt;&gt;\/]+)|[^\pZ\pC&lt;&gt;.:@\/]+(?:\.[^\pZ\pC&lt;&gt;.:@\/]+)*\.[^\pZ\pC&lt;&gt;.:@\/]+(?![^\pZ\pC&lt;&gt;.:@\/]*[@])|localhost\b)((?&gt;[^\pZ\pC\p{Ps}\p{Pi}\p{Pe}\p{Pf}&lt;&gt;]+?)|[\p{Ps}\p{Pi}](?2)*[\p{Pe}\p{Pf}])*(?:[\p{Ps}\p{Pi}](?2)*[\p{Pe}\p{Pf}]|[\/\\+_-]|[^\pZ\pC\pP\pS]))/gi){push @l, $1};END{printf "%s", join "\n", @l;}');;
 3) # Extract Email Address
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/([{\pL\pN!$&amp;*=^`|~#%+\/?_}-][^\s@]*@[^\s]+\.[{\pL\pN$&amp;*=^`|~#%+\/_}-]+)/g){push @l, $1};END{printf "%s", join ", ", @l;}');;
 4) # Unescape URL
@@ -438,7 +438,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>318.500000:660.000000</string>
+				<string>318.500000:499.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -448,7 +448,7 @@ main "$@"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>2A024CE7-A3CA-4DEF-A48D-36011912FAEC</key>
+		<key>4C635AFA-2EA3-4D38-8F88-C3193AC99BA7</key>
 		<dict>
 			<key>from</key>
 			<string>2ED510B4-FEEB-4402-B478-6EF9F273580D - 2ED510B4-FEEB-4402-B478-6EF9F273580D</string>
