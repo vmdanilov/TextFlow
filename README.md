@@ -33,6 +33,7 @@ By default, TextFlow removes any formatting from the text.
 - Lower Case
 - Title Case
 - Sentence Case
+- Quote
 - Sort Lines in Ascending Order
 - Sort Lines in Descending Order
 - Unordered List
