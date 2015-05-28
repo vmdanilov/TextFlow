@@ -189,7 +189,7 @@ case $x in
 10) # Dumb Punctuation
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'‘’ʹ′]/'/g;" -e 's/["“”″]/"/g;' -e 's/—/--/g;' -e 's/[-—–‑]/-/g;');;
 11) # Remove Quotes
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'\"‘’“”]//g;");;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/[`"‘“”]//g;' -e "s/(?&gt;(?&lt;=[\pZ\pC\pP\pS])|^)[']//g;" -e "s/['’](?&gt;(?=[\pZ\pC\pP\pS])|$)//g;");;
 12) # Text Substitution
 	text=$(printf '%s' "$text" | substitute);;
 13) # Transliterate
