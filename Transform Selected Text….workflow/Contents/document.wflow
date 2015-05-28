@@ -174,7 +174,7 @@ case $x in
 2) # Extract URL
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/(?&gt;(?&lt;=[\pZ\pC\p{Ps}\p{Pe}\p{Pi}\p{Pf}@])|^)(?![\pZ\pC\p{Ps}\p{Pe}\p{Pi}\p{Pf}@])((?:(?:[a-z][a-z+.-]*:)?\/{1,3}(?:[^\pZ\pC&lt;&gt;.:@\/]+\.|[^\pZ\pC&lt;&gt;\/]+)|[^\pZ\pC&lt;&gt;.:@\/]+(?:\.[^\pZ\pC&lt;&gt;.:@\/]+)*\.[^\pZ\pC&lt;&gt;.:@\/]+(?![^\pZ\pC&lt;&gt;.:@\/]*[@])|localhost\b)((?&gt;[^\pZ\pC\p{Ps}\p{Pi}\p{Pe}\p{Pf}&lt;&gt;]+?)|[\p{Ps}\p{Pi}](?2)*[\p{Pe}\p{Pf}])*(?:[\p{Ps}\p{Pi}](?2)*[\p{Pe}\p{Pf}]|[\/\\+_-]|[^\pZ\pC\pP\pS]))/gi){push @l, $1};END{printf "%s", join "\n", @l;}');;
 3) # Extract Email Address
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/([{\pL\pN!$&amp;*=^`|~#%+\/?_}-][^\s@]*@[^\s]+\.[{\pL\pN$&amp;*=^`|~#%+\/_}-]+)/g){push @l, $1};END{printf "%s", join ", ", @l;}');;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -ne 'while(m/([{\pL\pN!$&amp;*=^|~#%+\/?_}-][^\pZ\pC:@&lt;&gt;]*@[^\pZ\pC&lt;&gt;.]+\.[^\pZ\pC&lt;&gt;?]*[^\pZ\pC\pP\pS])/g){push @l, $1};END{printf "%s", join ", ", @l;}');;
 4) # Unescape URL
 	text=$(printf '%s' "$text" | perl -MURI::Escape -Mutf8 -CSAD -lne 'print uri_unescape($_)');;
 5) # Plain List
