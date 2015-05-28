@@ -187,7 +187,7 @@ case $x in
 9) # Remove Extra Spaces
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/\pZ+/ /g;');;
 10) # Dumb Punctuation
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'‘’ʹ]/'/g;" -e 's/["“”″]/"/g;' -e 's/—/--/g;' -e 's/[-—–‑]/-/g;');;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'‘’ʹ′]/'/g;" -e 's/["“”″]/"/g;' -e 's/—/--/g;' -e 's/[-—–‑]/-/g;');;
 11) # Remove Quotes
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/[\`'\"‘’“”]//g;");;
 12) # Text Substitution
@@ -197,7 +197,7 @@ case $x in
 14) # Smart Units
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(\d)(?:\"|'')/\1″/g;" -e "s/(\d)'/\1ʹ/g;" -e 's/(\d)\s*(?:cents?|c)\b/\1¢/gi;' -e 's/(\d)\s*(?:USD)\b/\1\$/gi;' -e 's/(\d)\s*(?:GPB)\b/\1£/gi;' -e 's/(\d)\s*(?:EUR)\b/\1€/gi;' -e 's/(\d)\s*(?:JPY)\b/\1¥/gi;' -e 's/(\d)\s*(?:UAH|ГРН\.?)\b/\1₴/gi;' -e 's/(\d)\s*(?:RUB|РУБ\.?|Р)\b/\1₽/g;' -e 's/(\d)\s*(?:deg)\b/\1°/g;');;
 15) # Smart Punctuation
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(?&lt;=[\pL])\s*'(n)'\s*(?=[\pL])/ ’\1’ /gi;" -e "s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))'((?:twas|tis)(?:n't)?|em)(?=[\pZ\pC])/’\1/gi;" -e "s/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\"\/\\|])'/\1‘/g;" -e "s/'/’/g;" -e 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1“/g;' -e 's/"/”/g;' -e 's/\.\.\./…/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\+\/?-(\d)/±\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\-\/?+(\d)/∓\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))-(\d)/−\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))(\d)x\b/\1×/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*[-—]\s*([0-9]*[.,]?[0-9]+)/\1 − \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*x\s*([0-9]*[.,]?[0-9]+)/\1 × \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+|[\pL0-9]+)\s*\/\s*([0-9]*[.,]?[0-9]+|[\pL0-9]+)/\1 ÷ \2/g;' -e 's/-(\s)/–\1/g;' -e 's/--/—/g;');;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe "s/(?&lt;=[\pL\pM])\s*'(n)'\s*(?=[\pL\pM])/ ’\1’ /gi;" -e "s/(?:^|(?&lt;=[\pZ\pC\pP\pS]))'((?:twas|tis)(?:n't)?|em)(?=[\pZ\pC])/’\1/gi;" -e "s/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\"\/\\|])'/\1‘/g;" -e "s/'/’/g;" -e 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1“/g;' -e 's/"/”/g;' -e 's/\.\.\./…/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\+\/?-(\d)/±\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))\-\/?+(\d)/∓\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))-(\d)/−\1/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))(\d)x\b/\1×/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*[-—]\s*([0-9]*[.,]?[0-9]+)/\1 − \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+)\s*x\s*([0-9]*[.,]?[0-9]+)/\1 × \2/g;' -e 's/(?:^|(?&lt;=[\pZ\pC\pP\pS]))([0-9]*[.,]?[0-9]+|[\pL0-9]+)\s*\/\s*([0-9]*[.,]?[0-9]+|[\pL0-9]+)/\1 ÷ \2/g;' -e 's/-(\s)/–\1/g;' -e 's/--/—/g;');;
 16) # Upper Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\u\1/g;');;
 17) # Lower Case
@@ -439,7 +439,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>318.500000:499.000000</string>
+				<string>318.500000:656.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
