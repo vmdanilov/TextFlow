@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>318.500000:316.000000</string>
+				<string>311.000000:316.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -223,7 +223,7 @@ case $x in
 esac
 done
 
-if [[ $# -eq 0 || -z $text ]]; then
+if [[ $1 -eq 0 || -z $text ]]; then
 	kill -HUP $(ps -o ppid= $$)
 fi
 
@@ -441,7 +441,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>318.500000:656.000000</string>
+				<string>311.000000:683.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -451,7 +451,7 @@ main "$@"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>F5E927E8-D8F8-44A6-A243-75266E2239C0</key>
+		<key>10791CD1-704B-4263-8297-9CCC262C45EC</key>
 		<dict>
 			<key>from</key>
 			<string>1D1DA370-B1A8-417B-BD18-BFB79389A39B - 1D1DA370-B1A8-417B-BD18-BFB79389A39B</string>

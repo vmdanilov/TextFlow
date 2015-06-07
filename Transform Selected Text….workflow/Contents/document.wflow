@@ -224,7 +224,7 @@ case $x in
 esac
 done
 
-if [[ $# -eq 0 || -z $text ]]; then
+if [[ $1 -eq 0 || -z $text ]]; then
 	kill -HUP $(ps -o ppid= $$)
 fi
 
@@ -440,7 +440,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>311.000000:668.000000</string>
+				<string>311.000000:692.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -450,7 +450,7 @@ main "$@"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>4C635AFA-2EA3-4D38-8F88-C3193AC99BA7</key>
+		<key>E708C7A5-83B2-443F-A110-B80C14E8307A</key>
 		<dict>
 			<key>from</key>
 			<string>2ED510B4-FEEB-4402-B478-6EF9F273580D - 2ED510B4-FEEB-4402-B478-6EF9F273580D</string>
