@@ -42,7 +42,7 @@ By default, TextFlow removes any formatting from the text.
 - Copy to Clipboard\*\*
 
 \* Or Text Expansion, specify your substitutions in * > System Preferences > Keyboard > Text*.  
-\*\* Some WYSIWYG editors, or content editable fields, in browsers ignore TextFlow output and paste directly from Clipboard. Include this option to fix this issue. In worst-case scenario, you can *Copy*, then *Paste and Transform Text* with *Copy to Clipboard* selected, and finally *Paste*.
+\*\* Some WYSIWYG editors, or content editable fields, in browsers ignore TextFlow output and paste directly from Clipboard. Include this option to fix the issue. In worst-case scenario, you can *Copy*, then *Paste and Transform Text* with *Copy to Clipboard* selected, and finally *Paste*.
 
 ## Install
 
