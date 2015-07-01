@@ -2,7 +2,7 @@
 
 TextFlow is a set of Automator workflows for text manipulation featuring basic technical editing including smart punctuation, text substitution and the easiest way to paste unformatted text in every OS X application.
 
-<img src="screenshots/screenshot-textflow.png" alt="Screenshot of TextFlow" width="935">
+<img src="screenshots/screenshot-textflow.png" alt="Screenshot of TextFlow" width="956">
 
 ## Workflows
 
