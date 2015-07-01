@@ -23,6 +23,8 @@ By default, TextFlow removes any formatting from the text.
 - Merge All Lines
 - Remove Empty Lines
 - Remove Extra Spaces
+- Replace Spaces with Underscores
+- Replace Spaces with Hyphens
 - Dumb Punctuation
 - Remove Quotes
 - Text Substitution\*
