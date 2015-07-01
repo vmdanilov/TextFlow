@@ -222,7 +222,7 @@ case $x in
 26) # Copy to Clipboard
 	printf '%s' "$text" | pbcopy;;
 27) # Replace Space to Underscore
-	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/\pZ+/_/g;’);;
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/\pZ+/_/g;');;
 esac
 done
 
