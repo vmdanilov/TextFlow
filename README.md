@@ -34,6 +34,7 @@ By default, TextFlow removes any formatting from the text.
 - Upper Case
 - Lower Case
 - Title Case
+- AP Style Title Case
 - Sentence Case
 - Quote
 - Sort Lines in Ascending Order

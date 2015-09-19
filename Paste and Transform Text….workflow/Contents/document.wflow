@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}		tell application "System Events"		set activeProcessId to unix id of first process whose frontmost is true	end tell		tell me to activate		set theFormatList to {"Fix Paragraphs", "Extract URL", "Extract Email Address", "Unescape URL", "Plain List", "Remove Duplicate Lines", "Merge All Lines", "Remove Empty Lines", "Remove Extra Spaces", "Replace Spaces with Underscores", "Replace Spaces with Hyphens", "Dumb Punctuation", "Remove Quotes", "Text Substitution", "Transliterate", "Smart Units", "Smart Punctuation", "Upper Case", "Lower Case", "Title Case", "Sentence Case", "Quote", "Sort Lines in Ascending Order", "Sort Lines in Descending Order", "Unordered List", "Ordered List", "Blockquote", "Copy to Clipboard"}		set defaultFormat to ""	try		set defaultFormat to do shell script "defaults read com.services.textworkflows 'Format' 2&gt;/dev/null" as text	end try	set defaultFormat to words of defaultFormat		set defaultFormatItems to {}	repeat with i from 1 to count defaultFormat		try			set end of defaultFormatItems to item (item i of defaultFormat) of theFormatList		end try	end repeat		set choices to choose from list theFormatList with title "TextFlow – Paste and Transform Text" with prompt "Please select text transforms:" default items defaultFormatItems with multiple selections allowed and empty selection allowed		set input to {}		if choices = false then				set input to {"0"}			else				repeat with i from 1 to count theFormatList			if choices contains item i of theFormatList then				set end of input to i as string			end if		end repeat				set AppleScript's text item delimiters to {", "}		if (input as string) ≠ (defaultFormat as string) then			try				do shell script "defaults write com.services.textworkflows 'Format' " &amp; quoted form of (input as string) &amp; " 2&gt;/dev/null"			end try		end if			end if		try		tell application "System Events"			set the frontmost of first process whose unix id is activeProcessId to true		end tell	end try		return inputend run</string>
+					<string>on run {input, parameters}		tell application "System Events"		set activeProcessId to unix id of first process whose frontmost is true	end tell		tell me to activate		set theFormatList to {"Fix Paragraphs", "Extract URL", "Extract Email Address", "Unescape URL", "Plain List", "Remove Duplicate Lines", "Merge All Lines", "Remove Empty Lines", "Remove Extra Spaces", "Replace Spaces with Underscores", "Replace Spaces with Hyphens", "Dumb Punctuation", "Remove Quotes", "Text Substitution", "Transliterate", "Smart Units", "Smart Punctuation", "Upper Case", "Lower Case", "Title Case", "AP Style Title Case", "Sentence Case", "Quote", "Sort Lines in Ascending Order", "Sort Lines in Descending Order", "Unordered List", "Ordered List", "Blockquote", "Copy to Clipboard"}		set defaultFormat to ""	try		set defaultFormat to do shell script "defaults read com.services.textworkflows 'Format' 2&gt;/dev/null" as text	end try	set defaultFormat to words of defaultFormat		set defaultFormatItems to {}	repeat with i from 1 to count defaultFormat		try			set end of defaultFormatItems to item (item i of defaultFormat) of theFormatList		end try	end repeat		set choices to choose from list theFormatList with title "TextFlow – Paste and Transform Text" with prompt "Please select text transforms:" default items defaultFormatItems with multiple selections allowed and empty selection allowed		set input to {}		if choices = false then				set input to {"0"}			else				repeat with i from 1 to count theFormatList			if choices contains item i of theFormatList then				set end of input to i as string			end if		end repeat				set AppleScript's text item delimiters to {", "}		if (input as string) ≠ (defaultFormat as string) then			try				do shell script "defaults write com.services.textworkflows 'Format' " &amp; quoted form of (input as string) &amp; " 2&gt;/dev/null"			end try		end if			end if		try		tell application "System Events"			set the frontmost of first process whose unix id is activeProcessId to true		end tell	end try		return inputend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -208,21 +208,23 @@ case $x in
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\l\1/g;');;
 20) # Title Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/([\pL\pM\p{Nd}\p{Nl}\p{Pc}]+)/\u\1/g;');;
-21) # Sentence Case
+21) # AP Style Title Case
+	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/([\pL\pM\p{Nd}\p{Nl}\p{Pc}]+)/\u\1/g;' -pe 's/(?&lt;=[\pZ\pC\pP\pS])(a|for|so|an|in|the|and|nor|to|at|of|up|but|on|yet|by|or)(?=[\pZ\pC])/\l\1/gi;');;
+22) # Sentence Case
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -pe 's/(\pL)/\l\1/g;' -e 's/(^\s*[\p{Ps}\p{Pe}]*|[.?!\p{Zl}\p{Zp}]\s+)([\pL\pM\p{Nd}\p{Nl}\p{Pc}])/\1\u\2/g;');;
-22) # Quote
+23) # Quote
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -0777pe 's/(^|[\pZ\pC\p{Pd}\p{Ps}\p{Pi}\pS\/\\|])"/\1‘/g;' -e 's/“/‘/g;' -e 's/"/’/g;' -e 's/”/’/g;' -e 's/^[\pZ\pC]*(.*?)[\pZ\pC]*$/“\1”/gs;');;
-23) # Sort Lines in Ascending Order
+24) # Sort Lines in Ascending Order
 	text=$(printf '%s' "$text" | sort);;
-24) # Sort Lines in Descending Order
+25) # Sort Lines in Descending Order
 	text=$(printf '%s' "$text" | sort -r);;
-25) # Unordered List
+26) # Unordered List
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC]+//g;$_="- $_"if/./;');;
-26) # Ordered List
+27) # Ordered List
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC]+//g;$_=++$i.". $_"if/./;');;
-27) # Blockquote
+28) # Blockquote
 	text=$(printf '%s' "$text" | perl -Mutf8 -CSAD -lpe 's/^[\pZ\pC]+//g;$_="&gt; $_";');;
-28) # Copy to Clipboard
+29) # Copy to Clipboard
 	printf '%s' "$text" | pbcopy;;
 esac
 done
@@ -445,7 +447,7 @@ main "$@"</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>311.000000:692.000000</string>
+				<string>311.000000:648.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/English.lproj/main.nib</string>
 			</dict>
@@ -455,7 +457,7 @@ main "$@"</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>BEEE99EB-9807-4E3F-B681-D01F2DE8DAF0</key>
+		<key>B46DBB54-6CBB-4FC9-AE71-E3723E3EF76D</key>
 		<dict>
 			<key>from</key>
 			<string>1D1DA370-B1A8-417B-BD18-BFB79389A39B - 1D1DA370-B1A8-417B-BD18-BFB79389A39B</string>
