@@ -73,7 +73,7 @@ Recommended shortcuts:
 
 <img src="screenshots/screenshot-paste-and-match-style-shortcut.png" alt="Screenshot of assigning Paste and Match Style shortcut for all Apps" width="780">
 
-While it is tempting to just assign <kbd>⌘ Command</kbd> <kbd>V</kbd> to *Paste and Match Style*, it will break pasting to plain textfields and object manipulation for apps like Mail, Messages and Keynote.
+While it is tempting to just assign <kbd>⌘ Command</kbd> <kbd>V</kbd> to *Paste and Match Style*, this will break pasting to plain textfields and object manipulation for apps like Mail, Messages and Keynote.
 
 ## Contributing
 
