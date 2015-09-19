@@ -69,9 +69,11 @@ Recommended shortcuts:
 - *Transform Selected Text*: <kbd>⌃ Control</kbd> <kbd>⌥ Option</kbd> <kbd>⌘ Command</kbd> <kbd>T</kbd>
 - *Paste as Plain Text*\*: <kbd>⇧ Shift</kbd> <kbd>⌘ Command</kbd> <kbd>V</kbd>
 
-\* It is also recommended to assign the same global shortcut to *Paste and Match Style* command via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*. This will effectively allow you to have the same shortcut for *Paste and Match Style*, or *Paste as Plain Text*, in every application.
+\* It is also recommended to assign the same global shortcut to *Paste and Match Style* command (and *Paste and Match Formatting*, if using Microsoft Office) via * > System Preferences > Keyboard > Shortcuts > App Shortcuts > All Applications*. This will effectively allow you to have the same shortcut for *Paste and Match Style*, or *Paste as Plain Text*, in every application. The command name may vary in some apps, add those to the list as well, e.g. *Paste and Match Formatting* for Microsoft Office and *Paste as Plain Text* for Evernote.
 
 <img src="screenshots/screenshot-paste-and-match-style-shortcut.png" alt="Screenshot of assigning Paste and Match Style shortcut for all Apps" width="780">
+
+While it is tempting to just assign <kbd>⌘ Command</kbd> <kbd>V</kbd> to *Paste and Match Style*, it will break pasting to plain textfields and object manipulation for apps like Mail, Messages and Keynote.
 
 ## Contributing
 
